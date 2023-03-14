@@ -1,3 +1,25 @@
 [build]
-  command = "php bin/console cache:clear && php bin/console assets:install && php bin/console assetic:dump && php bin/console server:start"
+  command = "webpack --mode=production && cp -R /Users/heidimorsky/Desktop/MyPortfolio/converter_PHP/json_converter_UI/templates/* public/"
   publish = "public/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.php"
+  status = 200
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+      X-Frame-Options = "DENY"
+      X-XSS-Protection = "1; mode=block"
+      X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.php"
+    [headers.values]
+      Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/templates/base.html.twig"
+    [headers.values]
+      Cache-Control = "public, max-age=3600"
