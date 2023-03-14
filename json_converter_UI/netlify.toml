@@ -4,7 +4,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.php"
+  to = "/templates/base.html.twig"
   status = 200
 
 [[headers]]
